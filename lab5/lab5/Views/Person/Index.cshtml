@@ -1,0 +1,88 @@
+﻿@model IEnumerable<lab5.Models.PersonViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        
+        
+        <th>
+            @Html.DisplayNameFor(model => model.HomeAddress)
+        </th>
+        
+        
+        
+       
+        
+        
+        <th>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiddleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeAddress)
+        </td>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PersonId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PersonId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
+
+        </td>
+        <td>
+            <a href="/Contact/Create/@item.PersonId" class="btn btn-default">Add Contact</a>
+        </td>
+        <td>
+            <a href="/Contact/Details/@item.PersonId" class="btn btn-default">View Contacts</a>
+        </td>
+    </tr>
+}
+
+</table>
